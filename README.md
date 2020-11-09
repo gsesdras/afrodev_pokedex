@@ -19,6 +19,7 @@ Para utilizar o projeto, você só precisa abri-lo pelo Android Studio e rodar e
 | [<img width="150px" height="150px" src="https://avatars0.githubusercontent.com/u/43199901?s=460&v=4"><br><sub>@gsesdras</sub>](https://github.com/gsesdras) |
 | :---: |
 
+<img src="screenshots/landing.png"/>
 
 
 
