@@ -2,7 +2,7 @@
 
 ## Créditos
 O protópito do projeto integrador foi desenvolvido pela Desenvolvedora mobile [Sandyara Peres].<br/>
-Todo o protótipo você pode ver no repositório: [Projeto Integrador]
+Todo o protótipo você pode ver no repositório: [Projeto Integrador].
 
 ## Screenshots
 
@@ -16,7 +16,7 @@ Essa pokédex está sendo desenvolvida com intuito de agregar o maior número de
 Dessa forma, estaremos apto a enfrentar a maioria dos desafios que o mercado nos propõe.
 
 ## Linguagens e ferramentas
-Toda a aplicação é desenvolvida em Kotlin. Os dados são consumídos da api [PokeAPI]
+Toda a aplicação é desenvolvida em Kotlin. Os dados são consumídos da api [PokeAPI].
 
 ## Utilização
 Para utilizar o projeto, você só precisa abri-lo pelo Android Studio e rodar em um emulador ou dispositivo android físico.
