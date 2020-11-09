@@ -10,6 +10,10 @@ Todo o protótipo você pode ver no repositório: [Projeto Integrador]
 <img src="screenshots/pokemon_list.png" width="150px"/>
 <img src="screenshots/pokemon_activity.png" width="150px"/>
 
+Solarized dark             |  Solarized Ocean
+:-------------------------:|:-------------------------:
+![](https://...Dark.png)  |  ![](https://...Ocean.png)
+
 ## Objetivo
 Essa pokédex foi desenvolvida com intuito de agregar o maior número de conhecimentos relacionados a desenvolvimento android. 
 Dessa forma, estaremos apto a enfrentar a maioria dos desafios que o mercado nos propõe.
