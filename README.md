@@ -1,7 +1,7 @@
 # Pokédex - Projeto integrador do programa Afrodev 1ª edição
 
 ## Créditos
-O protópito do projeto integrador foi desenvolvido pela Desenvolvedora mobile [Sandyara Peres].<br/>
+O protópito do projeto integrador foi desenvolvido pela Desenvolvedora mobile [Sandyara Peres] - Professora da turma android.<br/>
 Todo o protótipo você pode ver no repositório: [Projeto Integrador].
 
 ## Screenshots
