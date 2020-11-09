@@ -19,7 +19,7 @@ Dessa forma, estaremos apto a enfrentar a maioria dos desafios que o mercado nos
 Toda a aplicação é desenvolvida em Kotlin. Os dados são consumídos da api [PokeAPI].
 
 ## Utilização
-Para utilizar o projeto, você só precisa abri-lo pelo Android Studio e rodar em um emulador ou dispositivo android físico.
+Para utilizar o projeto, você só precisa abri-lo pelo Android Studio e rodar em um emulador android ou dispositivo físico android.
 
 ## Autor
 
