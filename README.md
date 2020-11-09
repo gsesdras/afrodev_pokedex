@@ -10,12 +10,12 @@ Todo o protótipo você pode ver no repositório: [Projeto Integrador]
 <img src="screenshots/pokemon_list.png" width="150px"/>
 <img src="screenshots/pokemon_activity.png" width="150px"/>
 
-Solarized dark             |  Solarized Ocean
-:-------------------------:|:-------------------------:
-![](https://...Dark.png)  |  ![](https://...Ocean.png)
+Landing                                  |  Pokemon Listing Page                         |  Pokemon Page
+:---------------------------------------:|:---------------------------------------------:|:---------------------------------------------:
+![](https://...screenshots/landing.png)  |  ![](https://...screenshots/pokemon_list.png) |  ![](https://...screenshots/pokemon_activity.png)
 
 ## Objetivo
-Essa pokédex foi desenvolvida com intuito de agregar o maior número de conhecimentos relacionados a desenvolvimento android. 
+Essa pokédex está sendo desenvolvida com intuito de agregar o maior número de conhecimentos relacionados a desenvolvimento android. 
 Dessa forma, estaremos apto a enfrentar a maioria dos desafios que o mercado nos propõe.
 
 ## Linguagens e ferramentas
@@ -27,7 +27,6 @@ Para utilizar o projeto, você só precisa abri-lo pelo Android Studio e rodar e
 ## Autor
 
 | [<img width="150px" height="150px" src="https://avatars0.githubusercontent.com/u/43199901?s=460&v=4"><br><sub>@gsesdras</sub>](https://github.com/gsesdras) |
-| :---: |
 
 
 
