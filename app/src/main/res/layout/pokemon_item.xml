@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="@layout/activity_home_page_list">
+
+    <ImageView
+        android:id="@+id/pokemon_icon"
+        android:layout_width="76dp"
+        android:layout_height="76dp"
+        android:layout_marginStart="20dp"
+        android:src="@drawable/default_icon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/default_icon" />
+
+    <TextView
+        android:id="@+id/pokemon_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@android:color/black"
+        android:textSize="22sp"
+        android:text="@string/pikachu"
+        app:layout_constraintStart_toEndOf="@+id/pokemon_icon"
+        app:layout_constraintTop_toTopOf="@+id/pokemon_icon" />
+    <TextView
+        android:id="@+id/pokemon_id"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="18sp"
+        android:text="@string/_001"
+        app:layout_constraintStart_toEndOf="@+id/pokemon_icon"
+        app:layout_constraintTop_toBottomOf="@+id/pokemon_name" />
+
+        <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        >
+
+        <ImageView
+            android:id="@+id/primary_type"
+            android:layout_marginHorizontal="10dp"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:contentDescription="@string/atributo"
+            android:src="@drawable/shimmer_pokemon_type"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pokemon_icon" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Pokedéx</string>
+    <string name="qual_o_seu_nome">Qual é o seu nome?</string>
+    <string name="nome">Nome</string>
+    <string name="meu_nome">Meu nome é…</string>
+    <string name="pr_ximo">Próximo</string>
+    <string name="teste">Teste</string>
+    <string name="bem_vinde">Bem-vinde,</string>
+    <string name="iniciando_sua_poked_x_em">Iniciando sua PokeDéx em</string>
+    <string name="_3">3</string>
+    <string name="username">username</string>
+    <string name="bem_vindo_a">Bem-vindo(a),</string>
+    <string name="about">About</string>
+    <string name="procure">Procure…</string>
+    <string name="search">Search</string>
+    <string name="pokemons">Pokemons</string>
+    <string name="_001">#001</string>
+    <string name="atributo">Atributo</string>
+    <string name="default_icon">Default</string>
+    <string name="carregando">Carregando…</string>
+    <string name="pikachu">Pikachu</string>
+</resources>
