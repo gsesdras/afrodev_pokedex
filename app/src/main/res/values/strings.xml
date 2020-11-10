@@ -19,4 +19,10 @@
     <string name="default_icon">Default</string>
     <string name="carregando">Carregando…</string>
     <string name="pikachu">Pikachu</string>
+    <string name="pokemon_icon">Pokemon Icon</string>
+    <string name="status">Status</string>
+    <string name="evolucoes">Evoluções</string>
+    <string name="habilidades">Habilidades</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

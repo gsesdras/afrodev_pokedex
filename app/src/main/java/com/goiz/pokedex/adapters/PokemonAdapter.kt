@@ -8,19 +8,18 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.goiz.pokedex.R
+import com.goiz.pokedex.model.Pokemon
 import com.goiz.pokedex.utils.PokeUtils
 import com.squareup.picasso.Picasso
 import me.sargunvohra.lib.pokekotlin.client.PokeApiClient
-import me.sargunvohra.lib.pokekotlin.model.NamedApiResource
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
-import java.util.*
 
 
 class PokemonAdapter(
-    private val pokemonList: List<NamedApiResource>,
-    private val cellClickListener: CellClickListener,
-    private val context: Context
+        private val pokemonList: MutableList<Pokemon>,
+        private val cellClickListener: CellClickListener,
+        private val context: Context
 ) : RecyclerView.Adapter<PokemonAdapter.PokemonViewHolder>() {
     class PokemonViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         private val pokemonName: TextView = itemView.findViewById(R.id.pokemon_name)
@@ -30,25 +29,17 @@ class PokemonAdapter(
         private val pokeUtils = PokeUtils()
 
 
-        fun bind(pokemonReference: NamedApiResource, context: Context) {
-            val name = pokemonReference.name.substring(0, 1).toUpperCase(Locale.ROOT) + (pokemonReference.name.substring(1));
+        fun bind(pokemonReference: Pokemon, context: Context) {
+            val name = pokeUtils.capitalize(pokemonReference.name)
+
             pokemonName.text = name
             pokemonId.text = pokeUtils.idMask(pokemonReference.id)
-
-            val pokeApi = PokeApiClient()
-
-            doAsync {
-                pokemonPrimaryType.visibility = View.INVISIBLE
-                val pokemon = pokeApi.getPokemon(pokemonReference.id)
-                 uiThread {
-                    pokemonPrimaryType.setImageDrawable(pokeUtils.getImageByString(context, pokemon.types[0].type.name))
-                    pokemonPrimaryType.visibility = View.VISIBLE
-                }
-            }
 
             val imageURL =
                     "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonReference.id}.png"
             Picasso.get().load(imageURL).into(pokemonIcon)
+
+            pokemonPrimaryType.setImageDrawable(pokeUtils.getImageByString(context, pokemonReference.type))
         }
     }
 
@@ -77,6 +68,6 @@ class PokemonAdapter(
     }
 
     interface CellClickListener {
-        fun onCellClickListener(data: NamedApiResource)
+        fun onCellClickListener(data: Pokemon)
     }
 }

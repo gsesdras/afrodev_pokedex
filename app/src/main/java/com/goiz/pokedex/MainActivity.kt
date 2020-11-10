@@ -2,10 +2,10 @@ package com.goiz.pokedex
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -13,9 +13,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main);
 
-        try{
-            this.supportActionBar?.hide();
-        }catch (NullPointerException: Error){}
+        val next = findViewById<Button>(R.id.next)
 
         next.setOnClickListener {
             val name = findViewById<EditText>(R.id.yourNameInput).text
@@ -24,8 +22,8 @@ class MainActivity : AppCompatActivity() {
                 val toast = Toast.makeText(applicationContext, "Digite seu nome!", Toast.LENGTH_SHORT)
                 toast.show()
             }else {
-                val intent = Intent(this, Welcome::class.java)
-                intent.putExtra("Name", nameString)
+                val intent = Intent(this, HomePageList::class.java)
+                intent.putExtra("Username", nameString)
                 startActivity(intent)
             }
         }

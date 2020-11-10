@@ -10,10 +10,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Pokedex">
-        <activity android:name=".PokemonActivity"></activity>
+        android:theme="@style/Theme.Pokedex"
+        android:allowBackup="true">
+        <activity android:name=".PokemonActivity" />
         <activity android:name=".HomePageList" />
-        <activity android:name=".Welcome" />
         <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
