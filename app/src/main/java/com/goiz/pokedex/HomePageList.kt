@@ -22,7 +22,7 @@ class HomePageList : AppCompatActivity(), PokemonAdapter.CellClickListener {
 
         doAsync {
             val pokeApi = PokeApiClient()
-            val pokemons = pokeApi.getPokemonList(page*20, 20)
+            val pokemons = pokeApi.getPokemonList(page*10, 10)
             val pokemonList = mutableListOf<Pokemon>()
             pokemons.results.forEach {
                 val pokemonDetails = pokeApi.getPokemon(it.id)

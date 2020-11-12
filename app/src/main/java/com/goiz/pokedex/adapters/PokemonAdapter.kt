@@ -11,9 +11,6 @@ import com.goiz.pokedex.R
 import com.goiz.pokedex.model.Pokemon
 import com.goiz.pokedex.utils.PokeUtils
 import com.squareup.picasso.Picasso
-import me.sargunvohra.lib.pokekotlin.client.PokeApiClient
-import org.jetbrains.anko.doAsync
-import org.jetbrains.anko.uiThread
 
 
 class PokemonAdapter(
@@ -26,20 +23,20 @@ class PokemonAdapter(
         private val pokemonId: TextView = itemView.findViewById(R.id.pokemon_id)
         private val pokemonIcon: ImageView = itemView.findViewById(R.id.pokemon_icon)
         private val pokemonPrimaryType = itemView.findViewById<ImageView>(R.id.primary_type)
-        private val pokeUtils = PokeUtils()
+
 
 
         fun bind(pokemonReference: Pokemon, context: Context) {
-            val name = pokeUtils.capitalize(pokemonReference.name)
+            val name = PokeUtils.capitalize(pokemonReference.name)
 
             pokemonName.text = name
-            pokemonId.text = pokeUtils.idMask(pokemonReference.id)
+            pokemonId.text = PokeUtils.idMask(pokemonReference.id)
 
             val imageURL =
                     "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonReference.id}.png"
             Picasso.get().load(imageURL).into(pokemonIcon)
 
-            pokemonPrimaryType.setImageDrawable(pokeUtils.getImageByString(context, pokemonReference.type))
+            pokemonPrimaryType.setImageDrawable(PokeUtils.getImageByString(context, pokemonReference.type))
         }
     }
 
