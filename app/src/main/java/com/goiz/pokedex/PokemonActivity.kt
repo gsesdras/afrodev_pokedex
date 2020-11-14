@@ -15,6 +15,8 @@ import com.goiz.pokedex.utils.PokeUtils
 import com.google.android.material.tabs.TabLayout
 import com.squareup.picasso.Picasso
 import me.sargunvohra.lib.pokekotlin.client.PokeApiClient
+import me.sargunvohra.lib.pokekotlin.model.ChainLink
+import me.sargunvohra.lib.pokekotlin.model.EvolutionChain
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
 import pl.droidsonroids.gif.GifImageView
@@ -26,8 +28,17 @@ class PokemonActivity : AppCompatActivity() {
     private val pokemonStat = hashMapOf<String, Int>()
     private val weaknesses = arrayListOf<String>()
     private val resistances = arrayListOf<String>()
+    private val evolutions = arrayListOf<Int>()
+    private val evolutionsName = arrayListOf<String>()
     private val baseURL = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/"
     private val pokeApi = PokeApiClient()
+    private val pokemonIcon: ImageView by lazy { findViewById(R.id.pokemon_icon_main) }
+    private val pokemonName: TextView by lazy { findViewById(R.id.pokemon_name_main) }
+    private val pokemonId: TextView by lazy { findViewById(R.id.pokemon_id_main) }
+    private val loading: GifImageView by lazy { findViewById(R.id.gif_loading) }
+    private val view: ConstraintLayout by lazy { findViewById(R.id.pokemon_view) }
+    private val list: List<View> by lazy { listOf(pokemonIcon, pokemonName, pokemonId) }
+
 
     private fun showLoading(loading: GifImageView, items: List<View>, view: ConstraintLayout){
         items.forEach{
@@ -43,19 +54,13 @@ class PokemonActivity : AppCompatActivity() {
         view.setBackgroundDrawable(resources.getDrawable(R.drawable.background_rounded_white))
         loading.visibility = View.GONE
     }
-    private fun setupTabLayout(){
+    private fun setupTabLayout(bundle: Bundle){
         tabLayout = findViewById(R.id.tabLayout)
         viewPager = findViewById(R.id.viewPager)
 
         tabLayout.addTab(tabLayout.newTab().setText("Status"))
         tabLayout.addTab(tabLayout.newTab().setText("Evoluções"))
         tabLayout.addTab(tabLayout.newTab().setText("Habilidades"))
-
-        val bundle = Bundle().apply {
-            putSerializable("PokemonStats", pokemonStat)
-            putStringArrayList("Weaknesses", weaknesses)
-            putStringArrayList("Resistances", resistances)
-        }
 
         val adapter = TabAdapter(
                 this@PokemonActivity,
@@ -74,24 +79,29 @@ class PokemonActivity : AppCompatActivity() {
             override fun onTabReselected(tab: TabLayout.Tab) {}
         })
     }
+    private fun addChain(evolves: List<ChainLink>){
+        val evolvesTo = evolves[0]
+        evolutions.add(evolvesTo.species.id)
+        evolutionsName.add(evolvesTo.species.name)
+        if(!evolvesTo.evolvesTo.isNullOrEmpty()){
+            addChain(evolvesTo.evolvesTo)
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pokemon)
 
-        val pokemonIcon: ImageView = findViewById(R.id.pokemon_icon_main)
-        val pokemonName: TextView = findViewById(R.id.pokemon_name_main)
-        val pokemonId: TextView = findViewById(R.id.pokemon_id_main)
-        val loading: GifImageView = findViewById(R.id.gif_loading)
-        val view: ConstraintLayout = findViewById(R.id.pokemon_view)
         val pokemonIdExtra: String = intent.getStringExtra("PokemonId").toString()
-        val list: List<View> = listOf(pokemonIcon, pokemonName, pokemonId)
+        val pokemonChainId: String = intent.getStringExtra("PokemonChainId").toString()
+
 
         showLoading(loading, list, view)
 
         doAsync{
             val pokemon = pokemonIdExtra.let{ pokeApi.getPokemon(pokemonIdExtra.toInt())}
             val type = pokeApi.getType(pokemon.types[0].type.id)
+            val chain = pokeApi.getEvolutionChain(pokemonChainId.toInt())
             uiThread {
                 pokemon.let{
                     val name = PokeUtils.capitalize(pokemon.name)
@@ -116,7 +126,19 @@ class PokemonActivity : AppCompatActivity() {
                         resistances.add(it.name)
                     }
 
-                    setupTabLayout()
+                    addChain(chain.chain.evolvesTo)
+
+                    val bundle = Bundle().apply {
+                        putSerializable("PokemonStats", pokemonStat)
+                        putStringArrayList("Weaknesses", weaknesses)
+                        putStringArrayList("Resistances", resistances)
+                        putIntegerArrayList("Evolutions", evolutions)
+                        putStringArrayList("EvolutionsName", evolutionsName)
+                        putInt("PokemonId", pokemon.id)
+                        putString("PokemonName", pokemon.name)
+                    }
+
+                    setupTabLayout(bundle)
                     hideLoading(loading, list, view)
                 }
             }

@@ -5,8 +5,8 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
-    android:minHeight="500dp"
-    tools:context=".Stats">
+    android:minHeight="1000dp"
+    tools:context=".fragments.Stats">
 
     <!-- STATS -->
 
@@ -232,28 +232,57 @@
 
 
 
-    <!-- WEAKNESSES -->
-
-    <TextView
-        android:id="@+id/txtWeaknesses"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/progressBarSpd"
-        android:text="@string/fraquezas"
-        android:textColor="@color/blue_700"
-        android:textSize="28sp"
-        android:layout_marginTop="40dp"/>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rcWeaknesses"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:listitem="@layout/weakness_item"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/progressBarSpd"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txtWeaknesses" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="40dp"
+        >
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- WEAKNESSES -->
+
+            <TextView
+                android:id="@+id/txtWeaknesses"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:text="@string/fraquezas"
+                android:textColor="@color/blue_700"
+                android:textSize="28sp"/>
+
+            <!-- RESISTANCES -->
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcWeaknesses"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/weaknesses_item"
+                android:layout_marginBottom="40dp"/>
+
+            <TextView
+                android:id="@+id/txtResistances"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:text="@string/resist_ncias"
+                android:textColor="@color/blue_700"
+                android:textSize="28sp"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcResistances"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:listitem="@layout/resistances_item"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+        </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

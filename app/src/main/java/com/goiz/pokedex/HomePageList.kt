@@ -13,6 +13,7 @@ import org.jetbrains.anko.uiThread
 import pl.droidsonroids.gif.GifImageView
 
 class HomePageList : AppCompatActivity(), PokemonAdapter.CellClickListener {
+    private val pokeApi = PokeApiClient()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,12 +22,13 @@ class HomePageList : AppCompatActivity(), PokemonAdapter.CellClickListener {
         val page = 0
 
         doAsync {
-            val pokeApi = PokeApiClient()
-            val pokemons = pokeApi.getPokemonList(page*10, 10)
+            val pokemonChainList = pokeApi.getEvolutionChainList(page*10, 10)
             val pokemonList = mutableListOf<Pokemon>()
-            pokemons.results.forEach {
-                val pokemonDetails = pokeApi.getPokemon(it.id)
-                pokemonList.add(Pokemon(it.id, it.name, pokemonDetails.types[0].type.name))
+            pokemonChainList.results.forEach {
+                val pokemonChain = pokeApi.getEvolutionChain(it.id)
+                val id = pokemonChain.chain.species.id
+                val pokemonDetails = pokeApi.getPokemon(id)
+                pokemonList.add(Pokemon(id, pokemonDetails.name, pokemonDetails.types[0].type.name, it.id))
             }
             uiThread {
                 val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
@@ -42,8 +44,10 @@ class HomePageList : AppCompatActivity(), PokemonAdapter.CellClickListener {
     }
 
     override fun onCellClickListener(data: Pokemon) {
-        val intent = Intent(this, PokemonActivity::class.java)
-        intent.putExtra("PokemonId", data.id.toString())
+        val intent = Intent(this, PokemonActivity::class.java).apply {
+            putExtra("PokemonId", data.id.toString())
+            putExtra("PokemonChainId", data.chain.toString())
+        }
         startActivity(intent)
     }
 }

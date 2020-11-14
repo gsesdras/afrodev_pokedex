@@ -1,4 +1,4 @@
-package com.goiz.pokedex
+package com.goiz.pokedex.fragments
 
 import android.os.Build
 import android.os.Bundle
@@ -11,10 +11,10 @@ import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
-import com.goiz.pokedex.adapters.PokemonAdapter
+import com.goiz.pokedex.R
+import com.goiz.pokedex.adapters.ResistancesAdapter
 import com.goiz.pokedex.adapters.WeaknessesAdapter
 import com.goiz.pokedex.utils.PokeUtils
-import me.sargunvohra.lib.pokekotlin.model.Pokemon
 
 class Stats() : Fragment() {
     private lateinit var txtHpValue: TextView;
@@ -30,6 +30,7 @@ class Stats() : Fragment() {
     private lateinit var progressBarSdef: ProgressBar;
     private lateinit var progressBarSpd: ProgressBar;
     private lateinit var rcWeaknesses: RecyclerView;
+    private lateinit var rcResistances: RecyclerView;
 
 
     @RequiresApi(Build.VERSION_CODES.N)
@@ -82,6 +83,9 @@ class Stats() : Fragment() {
 
         rcWeaknesses = view.findViewById(R.id.rcWeaknesses)
         rcWeaknesses.adapter = weaknessesList?.let { WeaknessesAdapter(it, requireContext()) }
+
+        rcResistances = view.findViewById(R.id.rcResistances)
+        rcResistances.adapter = resistancesList?.let { ResistancesAdapter(it, requireContext()) }
 
         return view
     }

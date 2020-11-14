@@ -33,4 +33,7 @@
     <string name="spd">SPD</string>
     <string name="fraquezas">Fraquezas</string>
     <string name="typeicon">TypeIcon</string>
+    <string name="resist_ncias">Resistências</string>
+
+
 </resources>

@@ -3,10 +3,9 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import com.goiz.pokedex.Abilities
-import com.goiz.pokedex.Evolution
-import com.goiz.pokedex.Stats
-import me.sargunvohra.lib.pokekotlin.model.Pokemon
+import com.goiz.pokedex.fragments.Abilities
+import com.goiz.pokedex.fragments.Evolution
+import com.goiz.pokedex.fragments.Stats
 
 @Suppress("DEPRECATION")
 
@@ -14,7 +13,7 @@ internal class TabAdapter(
         var context: Context,
         fm: FragmentManager,
         var totalTabs: Int,
-        var pokemonId: Bundle?
+        var bundle: Bundle?
 ) :
         FragmentPagerAdapter(fm) {
     override fun getItem(position: Int): Fragment {
@@ -22,11 +21,13 @@ internal class TabAdapter(
         return when (position) {
             0 -> {
                 val stats = Stats()
-                stats.arguments = pokemonId
+                stats.arguments = bundle
                 return stats
             }
             1 -> {
-                Evolution()
+                val evolution = Evolution()
+                evolution.arguments = bundle
+                return evolution
             }
             2 -> {
                 Abilities()
