@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Pokedéx</string>
+    <string name="app_name">Pokédex</string>
     <string name="qual_o_seu_nome">Qual é o seu nome?</string>
     <string name="nome">Nome</string>
     <string name="meu_nome">Meu nome é…</string>
@@ -13,7 +13,7 @@
     <string name="about">About</string>
     <string name="procure">Procure…</string>
     <string name="search">Search</string>
-    <string name="pokemons">Pokemons</string>
+    <string name="pokemons">Pokémons</string>
     <string name="_001">#001</string>
     <string name="atributo">Atributo</string>
     <string name="default_icon">Default</string>
