@@ -4,6 +4,9 @@
 O protópito do projeto integrador foi desenvolvido pela Desenvolvedora mobile [Sandyara Peres] - Professora da turma android.<br/>
 Todo o protótipo você pode ver no repositório: [Projeto Integrador].
 
+| [<img width="150px" height="150px" src="https://avatars0.githubusercontent.com/u/40678077?s=460&v=4"><br><sub>@SandyaraPeres</sub>](https://github.com/SandyaraPeres) |
+|:---:|
+
 ## Screenshots
 
 Landing                                  |  Pokemon Listing Page                         |  Pokemon Page
