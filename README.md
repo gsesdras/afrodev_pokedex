@@ -12,6 +12,7 @@ Todo o protótipo você pode ver no repositório: [Projeto Integrador].
 Landing                                             |  Pokemon Listing Page                                    |  Pokemon Page
 :--------------------------------------------------:|:--------------------------------------------------------:|:---------------------------------------------:
 <img src="screenshots/landing.png" width="200px"/>  |  <img src="screenshots/pokemon_list.png" width="200px"/> |  <img src="screenshots/pokemon_activity.png" width="200px"/>
+
 Stats                                               |Evolutions                                                |
 :--------------------------------------------------:|:--------------------------------------------------------:|
 <img src="screenshots/stats.png" width="200px"/>    |<img src="screenshots/evolutions.png" width="200px"/>
