@@ -9,10 +9,12 @@ Todo o protótipo você pode ver no repositório: [Projeto Integrador].
 
 ## Screenshots
 
-Landing                                  |  Pokemon Listing Page                         |  Pokemon Page
-:---------------------------------------:|:---------------------------------------------:|:---------------------------------------------:
+Landing                                             |  Pokemon Listing Page                                    |  Pokemon Page
+:--------------------------------------------------:|:--------------------------------------------------------:|:---------------------------------------------:
 <img src="screenshots/landing.png" width="200px"/>  |  <img src="screenshots/pokemon_list.png" width="200px"/> |  <img src="screenshots/pokemon_activity.png" width="200px"/>
-
+Stats                                               |Evolutions                                                |
+:--------------------------------------------------:|:--------------------------------------------------------:|
+<img src="screenshots/stats.png" width="200px"/>    |<img src="screenshots/evolutions.png" width="200px"/>
 
 ## Objetivo
 Essa pokédex está sendo desenvolvida com intuito de agregar o maior número de conhecimentos relacionados a desenvolvimento android. 
