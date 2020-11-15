@@ -90,10 +90,16 @@ class PokemonActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Log.d("BLABLA", "Created")
+        val pokemonType: String = intent.getStringExtra("PokemonType").toString()
+        val theme = PokeUtils.getThemeForType(pokemonType)
+        setTheme(theme)
         setContentView(R.layout.activity_pokemon)
 
         val pokemonIdExtra: String = intent.getStringExtra("PokemonId").toString()
         val pokemonChainId: String = intent.getStringExtra("PokemonChainId").toString()
+
+
 
 
         showLoading(loading, list, view)
@@ -105,7 +111,6 @@ class PokemonActivity : AppCompatActivity() {
             uiThread {
                 pokemon.let{
                     val name = PokeUtils.capitalize(pokemon.name)
-
                     val imageURL = "$baseURL${pokemon.id}.png"
                     Picasso.get().load(imageURL).into(pokemonIcon)
 
@@ -143,5 +148,10 @@ class PokemonActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d("BLABLA", "Resume")
     }
 }

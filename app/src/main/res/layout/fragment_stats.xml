@@ -6,7 +6,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
     android:minHeight="1000dp"
-    tools:context=".fragments.Stats">
+    tools:context=".fragments.Stats"
+    >
 
     <!-- STATS -->
 
@@ -17,7 +18,7 @@
         android:layout_marginVertical="10dp"
         android:layout_marginStart="30dp"
         android:text="@string/hp"
-        android:textColor="@color/blue_700"
+        android:textColor="?attr/colorPrimary"
         android:textSize="16sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -54,7 +55,7 @@
         android:layout_height="wrap_content"
         android:layout_marginVertical="10dp"
         android:text="@string/atk"
-        android:textColor="@color/blue_700"
+        android:textColor="?attr/colorPrimary"
         android:textSize="16sp"
         app:layout_constraintLeft_toLeftOf="@id/txtHp"
         app:layout_constraintStart_toStartOf="@+id/txtHp"
@@ -90,7 +91,7 @@
         android:layout_height="wrap_content"
         android:layout_marginVertical="10dp"
         android:text="@string/def"
-        android:textColor="@color/blue_700"
+        android:textColor="?attr/colorPrimary"
         android:textSize="16sp"
         app:layout_constraintLeft_toLeftOf="@id/txtHp"
         app:layout_constraintStart_toStartOf="@+id/txtAtk"
@@ -126,7 +127,7 @@
         android:layout_height="wrap_content"
         android:layout_marginVertical="10dp"
         android:text="@string/satk"
-        android:textColor="@color/blue_700"
+        android:textColor="?attr/colorPrimary"
         android:textSize="16sp"
         app:layout_constraintLeft_toLeftOf="@id/txtHp"
         app:layout_constraintStart_toStartOf="@+id/txtAtk"
@@ -163,7 +164,7 @@
         android:layout_height="wrap_content"
         android:layout_marginVertical="10dp"
         android:text="@string/sdef"
-        android:textColor="@color/blue_700"
+        android:textColor="?attr/colorPrimary"
         android:textSize="16sp"
         app:layout_constraintLeft_toLeftOf="@id/txtHp"
         app:layout_constraintStart_toStartOf="@+id/txtAtk"
@@ -199,7 +200,7 @@
         android:layout_height="wrap_content"
         android:layout_marginVertical="10dp"
         android:text="@string/spd"
-        android:textColor="@color/blue_700"
+        android:textColor="?attr/colorPrimary"
         android:textSize="16sp"
         app:layout_constraintLeft_toLeftOf="@id/txtHp"
         app:layout_constraintStart_toStartOf="@+id/txtAtk"
@@ -254,7 +255,7 @@
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
                 android:text="@string/fraquezas"
-                android:textColor="@color/blue_700"
+                android:textColor="?attr/colorPrimary"
                 android:textSize="28sp"/>
 
             <!-- RESISTANCES -->
@@ -273,7 +274,7 @@
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
                 android:text="@string/resist_ncias"
-                android:textColor="@color/blue_700"
+                android:textColor="?attr/colorPrimary"
                 android:textSize="28sp"/>
 
             <androidx.recyclerview.widget.RecyclerView

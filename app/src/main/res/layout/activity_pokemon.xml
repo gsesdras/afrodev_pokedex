@@ -4,14 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
-    android:fillViewport="true">
+    android:background="@drawable/background_rounded_white"
+    android:fillViewport="true"
+    >
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/pokemon_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/background_rounded_white"
             android:minHeight="730dp"
-            tools:context=".PokemonActivity">
+            tools:context=".PokemonActivity"
+            >
 
                 <pl.droidsonroids.gif.GifImageView
                     android:id="@+id/gif_loading"

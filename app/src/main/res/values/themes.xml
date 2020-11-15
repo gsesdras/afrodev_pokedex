@@ -5,6 +5,7 @@
         <item name="colorPrimary">@color/blue_500</item>
         <item name="colorPrimaryVariant">@color/blue_200</item>
         <item name="colorOnPrimary">@color/white</item>
+        <item name="backgroundColor">@color/blue_500</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
         <item name="colorSecondaryVariant">@color/teal_700</item>
@@ -20,4 +21,61 @@
         <item name="android:padding">0dp</item>
         <item name="textAllCaps">true</item>
     </style>
+    <style name="bug">
+        <item name="colorPrimary">@color/bug</item>
+    </style>
+    <style name="fire">
+        <item name="colorPrimary">@color/fire</item>
+    </style>
+    <style name="grass">
+        <item name="colorPrimary">@color/grass</item>
+    </style>
+    <style name="dark">
+            <item name="colorPrimary">@color/dark</item>
+    </style>
+    <style name="dragon">
+            <item name="colorPrimary">@color/dragon</item>
+    </style>
+    <style name="electric">
+            <item name="colorPrimary">@color/electric</item>
+    </style>
+    <style name="fairy">
+            <item name="colorPrimary">@color/fairy</item>
+    </style>
+    <style name="fighting">
+            <item name="colorPrimary">@color/fighting</item>
+    </style>
+    <style name="flying">
+            <item name="colorPrimary">@color/flying</item>
+    </style>
+    <style name="ghost">
+            <item name="colorPrimary">@color/ghost</item>
+    </style>
+    <style name="ground">
+            <item name="colorPrimary">@color/ground</item>
+    </style>
+    <style name="ice">
+            <item name="colorPrimary">@color/ice</item>
+    </style>
+    <style name="steel">
+            <item name="colorPrimary">@color/steel</item>
+    </style>
+    <style name="normal">
+            <item name="colorPrimary">@color/normal</item>
+    </style>
+    <style name="poison">
+            <item name="colorPrimary">@color/poison</item>
+    </style>
+    <style name="psychic">
+            <item name="colorPrimary">@color/psychic</item>
+    </style>
+    <style name="rock">
+            <item name="colorPrimary">@color/rock</item>
+    </style>
+    <style name="water">
+            <item name="colorPrimary">@color/water</item>
+    </style>
+
+
+
 </resources>
