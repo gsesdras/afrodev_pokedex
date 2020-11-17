@@ -4,6 +4,7 @@
     <string name="nome">Nome</string>
     <string name="meu_nome">Meu nome é…</string>
     <string name="pr_ximo">Próximo</string>
+    <string name="toast_digite_seu_nome">Digite seu nome!</string>
     <string name="teste">Teste</string>
     <string name="bem_vinde">Bem-vinde,</string>
     <string name="iniciando_sua_poked_x_em">Iniciando sua PokeDéx em</string>

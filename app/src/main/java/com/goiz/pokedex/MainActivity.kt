@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
             val name = findViewById<EditText>(R.id.yourNameInput).text
             val nameString = name.toString()
             if(nameString == ""){
-                val toast = Toast.makeText(applicationContext, "Digite seu nome!", Toast.LENGTH_SHORT)
+                val toast = Toast.makeText(applicationContext, R.string.toast_digite_seu_nome, Toast.LENGTH_SHORT)
                 toast.show()
             }else {
                 val intent = Intent(this, HomePageList::class.java)

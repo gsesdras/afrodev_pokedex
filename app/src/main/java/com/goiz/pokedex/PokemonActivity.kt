@@ -1,7 +1,6 @@
 package com.goiz.pokedex
 
 import TabAdapter
-import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -10,13 +9,13 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
+import androidx.core.content.res.ResourcesCompat
 import androidx.viewpager.widget.ViewPager
 import com.goiz.pokedex.utils.PokeUtils
 import com.google.android.material.tabs.TabLayout
 import com.squareup.picasso.Picasso
 import me.sargunvohra.lib.pokekotlin.client.PokeApiClient
 import me.sargunvohra.lib.pokekotlin.model.ChainLink
-import me.sargunvohra.lib.pokekotlin.model.EvolutionChain
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
 import pl.droidsonroids.gif.GifImageView
@@ -51,7 +50,8 @@ class PokemonActivity : AppCompatActivity() {
         items.forEach{
             it.visibility = View.VISIBLE
         }
-        view.setBackgroundDrawable(resources.getDrawable(R.drawable.background_rounded_white))
+
+        view.background = ResourcesCompat.getDrawable(resources, R.drawable.background_rounded_white, null)
         loading.visibility = View.GONE
     }
     private fun setupTabLayout(bundle: Bundle){
@@ -79,6 +79,7 @@ class PokemonActivity : AppCompatActivity() {
             override fun onTabReselected(tab: TabLayout.Tab) {}
         })
     }
+
     private fun addChain(evolves: List<ChainLink>){
         val evolvesTo = evolves[0]
         evolutions.add(evolvesTo.species.id)
@@ -90,7 +91,6 @@ class PokemonActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.d("BLABLA", "Created")
         val pokemonType: String = intent.getStringExtra("PokemonType").toString()
         val theme = PokeUtils.getThemeForType(pokemonType)
         setTheme(theme)
@@ -148,10 +148,5 @@ class PokemonActivity : AppCompatActivity() {
                 }
             }
         }
-    }
-
-    override fun onResume() {
-        super.onResume()
-        Log.d("BLABLA", "Resume")
     }
 }

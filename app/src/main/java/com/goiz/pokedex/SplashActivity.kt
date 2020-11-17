@@ -2,21 +2,26 @@ package com.goiz.pokedex
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 
 class SplashActivity : AppCompatActivity() {
-    var handler: Handler? = null
+    private val icSplash: ImageView by lazy { findViewById(R.id.icSplashScreen) }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.splash_screen)
 
-        handler = Handler()
-        handler!!.postDelayed({
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-            finish()
-        }, 1500)
+        icSplash.animate().apply {
+            duration = 1500
+            rotationYBy(360f)
+        }.withEndAction {
+            icSplash.animate().apply {
+                duration = 1500
+                rotationYBy(360f)
+            }.withEndAction {
+                startActivity(Intent(this@SplashActivity, MainActivity::class.java))
+            }
+        }.start()
     }
 }
