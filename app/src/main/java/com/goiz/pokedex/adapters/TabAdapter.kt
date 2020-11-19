@@ -30,7 +30,9 @@ internal class TabAdapter(
                 return evolution
             }
             2 -> {
-                Abilities()
+                val abilities = Abilities()
+                abilities.arguments = bundle
+                return abilities
             }
             else -> getItem(position)
         }

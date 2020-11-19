@@ -2,21 +2,38 @@ package com.goiz.pokedex
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
+import android.view.KeyEvent
+import android.view.Menu
 import android.view.View
+import android.widget.EditText
+import android.widget.SearchView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView.OnQueryTextListener
 import androidx.recyclerview.widget.RecyclerView
 import com.goiz.pokedex.adapters.PokemonAdapter
+import com.goiz.pokedex.api.PokemonApi
 import com.goiz.pokedex.model.Pokemon
+import com.goiz.pokedex.model.PokemonResponse
 import me.sargunvohra.lib.pokekotlin.client.PokeApiClient
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
 import pl.droidsonroids.gif.GifImageView
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import java.util.*
 
 class HomePageList : AppCompatActivity(), PokemonAdapter.CellClickListener {
     private val pokeApi = PokeApiClient()
 
     private val title by lazy { findViewById<TextView>(R.id.title)}
+    private val recyclerView: RecyclerView by lazy { findViewById(R.id.recyclerView) }
+    lateinit var adapter: RecyclerView.Adapter<PokemonAdapter.PokemonViewHolder>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,7 +41,6 @@ class HomePageList : AppCompatActivity(), PokemonAdapter.CellClickListener {
         val username = intent.getStringExtra("Username")
 
         val page = 0
-
         doAsync {
             val newTitle = "Oi, $username"
             title.text = newTitle
@@ -37,12 +53,26 @@ class HomePageList : AppCompatActivity(), PokemonAdapter.CellClickListener {
                 pokemonList.add(Pokemon(id, pokemonDetails.name, pokemonDetails.types[0].type.name, it.id))
             }
             uiThread {
-                val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
                 findViewById<GifImageView>(R.id.gif_loading).visibility = View.GONE
-                recyclerView.adapter = PokemonAdapter(pokemonList, it, it)
+                adapter = PokemonAdapter(pokemonList, it, it)
+                recyclerView.adapter = adapter
                 title.text = resources.getString(R.string.pokemons)
             }
         }
+    }
+
+    fun handleGoToAboutActivity(view: View){
+        view.animate().apply {
+            duration = 300
+            translationYBy(-10f)
+        }.withEndAction {
+            view.animate().apply {
+                duration = 300
+                translationYBy(10f)
+            }.withEndAction {
+                startActivity(Intent(this, About::class.java))
+            }
+        }.start()
     }
 
     override fun onBackPressed() {

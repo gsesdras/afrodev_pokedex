@@ -19,13 +19,16 @@ class MainActivity : AppCompatActivity() {
             val name = findViewById<EditText>(R.id.yourNameInput).text
             val nameString = name.toString()
             if(nameString == ""){
-                val toast = Toast.makeText(applicationContext, R.string.toast_digite_seu_nome, Toast.LENGTH_SHORT)
-                toast.show()
+                Toast.makeText(applicationContext, R.string.toast_digite_seu_nome, Toast.LENGTH_SHORT).show()
             }else {
                 val intent = Intent(this, HomePageList::class.java)
                 intent.putExtra("Username", nameString)
                 startActivity(intent)
             }
         }
+    }
+
+    override fun onBackPressed() {
+        finishAffinity()
     }
 }

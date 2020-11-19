@@ -8,6 +8,7 @@
     <color name="blue_500">#FF559edf</color>
     <color name="blue_200">#FF8dccf1</color>
     <color name="light_gray">#FFe8e8e8</color>
+    <color name="dark_gray">#434343</color>
 
     <color name="bug">#9dc130</color>
     <color name="dark">#5e5d69</color>

@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/about"
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:layout_marginTop="7dp"
@@ -29,14 +29,17 @@
         android:contentDescription="@string/about"
         android:scaleType="fitStart"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/title"
-        app:srcCompat="@drawable/ic_about" />
+        app:layout_constraintTop_toTopOf="@id/title"
+        app:srcCompat="@drawable/ic_about"
+        android:onClick="handleGoToAboutActivity"/>
 
     <SearchView
         android:id="@+id/searchView"
-        android:layout_width="347dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="25dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_centerHorizontal="true"
+        android:queryHint="Pesquise pelo pokémon"
         android:background="@drawable/rounded_gray_transparent_input"
         app:layout_constraintEnd_toEndOf="@+id/title"
         app:layout_constraintStart_toStartOf="@+id/title"

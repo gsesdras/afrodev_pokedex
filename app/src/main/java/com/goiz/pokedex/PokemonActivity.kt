@@ -2,7 +2,6 @@ package com.goiz.pokedex
 
 import TabAdapter
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -11,10 +10,12 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.viewpager.widget.ViewPager
+import com.goiz.pokedex.model.Abilities
 import com.goiz.pokedex.utils.PokeUtils
 import com.google.android.material.tabs.TabLayout
 import com.squareup.picasso.Picasso
 import me.sargunvohra.lib.pokekotlin.client.PokeApiClient
+import me.sargunvohra.lib.pokekotlin.model.Ability
 import me.sargunvohra.lib.pokekotlin.model.ChainLink
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
@@ -80,12 +81,12 @@ class PokemonActivity : AppCompatActivity() {
         })
     }
 
-    private fun addChain(evolves: List<ChainLink>){
+    fun addChain(evolves: List<ChainLink>, evolutions: ArrayList<Int>){
         val evolvesTo = evolves[0]
         evolutions.add(evolvesTo.species.id)
         evolutionsName.add(evolvesTo.species.name)
         if(!evolvesTo.evolvesTo.isNullOrEmpty()){
-            addChain(evolvesTo.evolvesTo)
+            addChain(evolvesTo.evolvesTo, evolutions)
         }
     }
 
@@ -108,6 +109,11 @@ class PokemonActivity : AppCompatActivity() {
             val pokemon = pokemonIdExtra.let{ pokeApi.getPokemon(pokemonIdExtra.toInt())}
             val type = pokeApi.getType(pokemon.types[0].type.id)
             val chain = pokeApi.getEvolutionChain(pokemonChainId.toInt())
+            val abilityList = mutableListOf<Ability>()
+            for(ability in pokemon.abilities){
+                val abilityDetail = pokeApi.getAbility(ability.ability.id)
+                abilityList.add(abilityDetail)
+            }
             uiThread {
                 pokemon.let{
                     val name = PokeUtils.capitalize(pokemon.name)
@@ -131,7 +137,7 @@ class PokemonActivity : AppCompatActivity() {
                         resistances.add(it.name)
                     }
 
-                    addChain(chain.chain.evolvesTo)
+                    addChain(chain.chain.evolvesTo, evolutions)
 
                     val bundle = Bundle().apply {
                         putSerializable("PokemonStats", pokemonStat)
@@ -141,6 +147,7 @@ class PokemonActivity : AppCompatActivity() {
                         putStringArrayList("EvolutionsName", evolutionsName)
                         putInt("PokemonId", pokemon.id)
                         putString("PokemonName", pokemon.name)
+                        putSerializable("Abilities", Abilities(abilityList))
                     }
 
                     setupTabLayout(bundle)
