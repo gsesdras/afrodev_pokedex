@@ -45,13 +45,9 @@ dependencies {
     testImplementation 'junit:junit:4.13.1'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
-    testImplementation 'io.mockk:mockk:1.10.2'
 
     // GIF Drawable
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.19'
-
-    // PokeAPI
-    implementation 'me.sargunvohra.lib:pokekotlin:2.3.1'
 
     // Picasso
     implementation 'com.squareup.picasso:picasso:2.71828'
@@ -60,8 +56,12 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.8.1'
 
+    //GSON
+    implementation 'com.google.code.gson:gson:2.8.6'
+
     // Anko
     implementation 'org.jetbrains.anko:anko-common:0.9'
 
-
+    //Coroutines
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9'
 }

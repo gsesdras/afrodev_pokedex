@@ -1,8 +1,8 @@
 package com.goiz.pokedex.model
 
-import me.sargunvohra.lib.pokekotlin.model.Ability
+import com.goiz.pokedex.model.ability.Ability
 import java.io.Serializable
 
 class Abilities(
         val abilities: List<Ability>
-): Serializable
+) : Serializable

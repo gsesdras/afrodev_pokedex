@@ -5,8 +5,7 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
-    android:id="@+id/clBackground"
-    >
+    android:id="@+id/clBackground">
 
     <ImageView
         android:id="@+id/pokemon1"
@@ -16,8 +15,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="10dp"
-        android:layout_marginStart="10dp"
-        />
+        android:layout_marginStart="10dp" />
 
     <TextView
         android:id="@+id/txtPokemon1"
@@ -28,7 +26,7 @@
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="@id/pokemon1"
         app:layout_constraintStart_toStartOf="@id/pokemon1"
-        app:layout_constraintTop_toBottomOf="@id/pokemon1"/>
+        app:layout_constraintTop_toBottomOf="@id/pokemon1" />
 
     <ImageView
         android:layout_marginHorizontal="30dp"
@@ -38,8 +36,7 @@
         android:src="@drawable/arrow_right_evolutions"
         app:layout_constraintStart_toEndOf="@id/pokemon1"
         app:layout_constraintTop_toTopOf="@id/pokemon1"
-        app:layout_constraintBottom_toBottomOf="@id/pokemon1"
-        />
+        app:layout_constraintBottom_toBottomOf="@id/pokemon1" />
 
     <ImageView
         android:id="@+id/pokemon2"
@@ -49,8 +46,8 @@
         android:layout_marginStart="30dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toEndOf="@id/arrowRight"
-        android:layout_marginTop="10dp"
-        />
+        android:layout_marginTop="10dp" />
+
     <TextView
         android:id="@+id/txtPokemon2"
         android:layout_width="wrap_content"
@@ -60,7 +57,7 @@
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="@id/pokemon2"
         app:layout_constraintStart_toStartOf="@id/pokemon2"
-        app:layout_constraintTop_toBottomOf="@id/pokemon2"/>
+        app:layout_constraintTop_toBottomOf="@id/pokemon2" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

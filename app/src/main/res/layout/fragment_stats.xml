@@ -5,9 +5,8 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
-    android:minHeight="1000dp"
-    tools:context=".fragments.Stats"
-    >
+    android:minHeight="1200dp"
+    tools:context=".view.fragments.Stats">
 
     <!-- STATS -->
 
@@ -85,6 +84,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/txtAtkValue"
         app:layout_constraintTop_toTopOf="@+id/txtAtkValue" />
+
     <TextView
         android:id="@+id/txtDef"
         android:layout_width="wrap_content"
@@ -121,6 +121,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/txtDefValue"
         app:layout_constraintTop_toTopOf="@+id/txtDefValue" />
+
     <TextView
         android:id="@+id/txtSatk"
         android:layout_width="wrap_content"
@@ -194,6 +195,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/txtSdefValue"
         app:layout_constraintTop_toTopOf="@id/txtSdefValue" />
+
     <TextView
         android:id="@+id/txtSpd"
         android:layout_width="wrap_content"
@@ -232,15 +234,13 @@
         app:layout_constraintTop_toTopOf="@id/txtSpdValue" />
 
 
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/progressBarSpd"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="40dp"
-        >
+        android:layout_marginTop="40dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -256,7 +256,7 @@
                 android:textAlignment="center"
                 android:text="@string/fraquezas"
                 android:textColor="?attr/colorPrimary"
-                android:textSize="28sp"/>
+                android:textSize="28sp" />
 
             <!-- RESISTANCES -->
 
@@ -266,7 +266,7 @@
                 android:layout_height="wrap_content"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:listitem="@layout/weaknesses_item"
-                android:layout_marginBottom="40dp"/>
+                android:layout_marginBottom="40dp" />
 
             <TextView
                 android:id="@+id/txtResistances"
@@ -275,7 +275,7 @@
                 android:textAlignment="center"
                 android:text="@string/resist_ncias"
                 android:textColor="?attr/colorPrimary"
-                android:textSize="28sp"/>
+                android:textSize="28sp" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rcResistances"

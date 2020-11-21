@@ -5,7 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    tools:context=".HomePageList">
+    tools:context=".view.HomePageList">
+
+    <ImageButton
+        android:id="@+id/logout"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="20dp"
+        android:background="#00FFFFFF"
+        android:contentDescription="@string/about"
+        android:onClick="logOut"
+        android:scaleType="fitStart"
+        app:layout_constraintBottom_toBottomOf="@+id/title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/title"
+        android:tint="@color/black"
+        app:srcCompat="@drawable/ic_baseline_exit_to_app_24" />
 
     <TextView
         android:id="@+id/title"
@@ -21,29 +36,31 @@
 
     <ImageButton
         android:id="@+id/about"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="7dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_marginEnd="20dp"
         android:background="#00FFFFFF"
         android:contentDescription="@string/about"
+        android:onClick="handleGoToAboutActivity"
         android:scaleType="fitStart"
+        app:layout_constraintBottom_toBottomOf="@+id/title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/title"
-        app:srcCompat="@drawable/ic_about"
-        android:onClick="handleGoToAboutActivity"/>
+        app:srcCompat="@drawable/ic_about" />
 
     <SearchView
         android:id="@+id/searchView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
         android:layout_marginTop="15dp"
-        android:layout_centerHorizontal="true"
-        android:queryHint="Pesquise pelo pokémon"
+        android:textColor="@color/black"
+        android:textColorHint="@color/dark_gray"
         android:background="@drawable/rounded_gray_transparent_input"
+        android:queryHint="Não foi? Busque 'pokemons'"
         app:layout_constraintEnd_toEndOf="@+id/title"
         app:layout_constraintStart_toStartOf="@+id/title"
-        app:layout_constraintTop_toBottomOf="@+id/title"/>
+        app:layout_constraintTop_toBottomOf="@+id/title" />
 
     <View
         android:id="@+id/divider"
@@ -57,7 +74,7 @@
         tools:background="@drawable/gradient_700" />
 
     <pl.droidsonroids.gif.GifImageView
-        android:id="@+id/gif_loading"
+        android:id="@+id/loading"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:src="@drawable/img_loading"
@@ -77,6 +94,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/divider"
-        android:background="@color/white"/>
+        android:background="@color/white" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

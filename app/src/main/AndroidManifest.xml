@@ -12,10 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Pokedex">
-        <activity android:name=".About"></activity>
-        <activity android:name=".PokemonActivity" />
-        <activity android:name=".HomePageList" />
-        <activity android:name=".SplashActivity">
+        <activity android:name=".view.About"></activity>
+        <activity android:name=".view.PokemonActivity" />
+        <activity android:name=".view.HomePageList" />
+        <activity android:name=".view.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,7 +23,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".view.MainActivity"
             android:windowSoftInputMode="adjustResize" />
     </application>
 

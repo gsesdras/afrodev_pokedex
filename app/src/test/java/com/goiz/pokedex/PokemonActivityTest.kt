@@ -1,39 +1,31 @@
 package com.goiz.pokedex
 
+
+import com.goiz.pokedex.model.evolution_chain.EvolutionChain
+import com.goiz.pokedex.view.PokemonActivity
+import com.google.gson.Gson
 import junit.framework.Assert.assertEquals
-import me.sargunvohra.lib.pokekotlin.model.ChainLink
-import me.sargunvohra.lib.pokekotlin.model.NamedApiResource
 import org.junit.Test
+import java.io.File
 
 class PokemonActivityTest {
-    private val evolutions = arrayListOf<Int>()
     @Test
-    fun chain_list_is_working(){
-        //GIVEN
-        val chainLink3 = ChainLink(
-            false,
-            NamedApiResource("Venusaur", "Grass", 3),
-            listOf(),
-            listOf()
-        )
-        val chainLink2 = ChainLink(
-            false,
-            NamedApiResource("Ivysaur", "Grass", 2),
-            listOf(),
-            listOf(chainLink3)
-        )
-        val chainLink1 = ChainLink(
-            false,
-            NamedApiResource("Bulbasaur", "Grass", 1),
-            listOf(),
-            listOf(chainLink2)
-        )
-
-        val chainList = listOf(chainLink1)
-
-        //EXECUTION
+    fun chain_list_is_working() {
         val mActivity = PokemonActivity()
-        mActivity.addChain(chainList, evolutions)
-        assertEquals(arrayListOf(1,2,3), evolutions)
+        //GIVEN
+        val json = getJson()
+        val gson = Gson()
+
+        val evolutionChain: EvolutionChain = gson.fromJson(json, EvolutionChain::class.java)
+
+        val evolutions = ArrayList<Int>()
+        mActivity.addChain(evolutionChain.chain, evolutions)
+        assertEquals(arrayListOf(2, 3), evolutions)
+
     }
+
+    private fun getJson(): String {
+        return File("./src/main/assets/chain.json").readText(Charsets.UTF_8)
+    }
+
 }

@@ -5,84 +5,92 @@
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
     android:background="@drawable/background_rounded_white"
-    android:fillViewport="true"
-    >
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/pokemon_view"
-            android:layout_width="match_parent"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/pokemon_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="730dp"
+        tools:context=".view.PokemonActivity">
+
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/gif_loading"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/img_loading"
+            android:visibility="gone"
+            android:layout_marginTop="300dp"
+            android:elevation="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/pokemon_icon_main"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="75dp"
+            android:contentDescription="@string/pokemon_icon"
+            android:elevation="1dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/pikachu" />
+
+        <TextView
+            android:id="@+id/pokemon_name_main"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:minHeight="730dp"
-            tools:context=".PokemonActivity"
-            >
+            android:textColor="@color/black"
+            android:textSize="36sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/pokemon_icon_main"
+            tools:text="@string/pikachu" />
 
-                <pl.droidsonroids.gif.GifImageView
-                    android:id="@+id/gif_loading"
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
-                    android:src="@drawable/img_loading"
-                    android:visibility="gone"
-                    android:layout_marginTop="300dp"
-                    android:elevation="5dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/pokemon_id_main"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="@id/pokemon_name_main"
+            app:layout_constraintStart_toStartOf="@id/pokemon_name_main"
+            app:layout_constraintTop_toBottomOf="@id/pokemon_name_main"
+            tools:text="@string/_001" />
 
-                <ImageView
-                    android:id="@+id/pokemon_icon_main"
-                    android:layout_width="200dp"
-                    android:layout_height="200dp"
-                    android:layout_marginTop="75dp"
-                    android:contentDescription="@string/pokemon_icon"
-                    android:elevation="1dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:src="@drawable/pikachu" />
+        <ImageView
+            android:id="@+id/tag"
+            android:layout_width="200dp"
+            android:layout_height="75dp"
+            tools:src="@drawable/tag_fire"
+            app:layout_constraintEnd_toEndOf="@+id/pokemon_name_main"
+            app:layout_constraintStart_toStartOf="@+id/pokemon_name_main"
+            app:layout_constraintTop_toBottomOf="@+id/pokemon_id_main" />
 
-                <TextView
-                    android:id="@+id/pokemon_name_main"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:textSize="36sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/pokemon_icon_main"
-                    tools:text="@string/pikachu" />
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="15dp"
+            android:background="@color/white"
+            app:tabGravity="fill"
+            app:layout_constraintTop_toBottomOf="@id/tag"
+            app:tabBackground="@drawable/tab_background_selector"
+            app:tabIndicatorHeight="0dp"
+            app:tabSelectedTextColor="@color/white"
+            app:tabTextAppearance="@style/TextStyleTAB"
+            app:tabTextColor="@color/black" />
 
-                <TextView
-                    android:id="@+id/pokemon_id_main"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@android:color/darker_gray"
-                    android:textSize="18sp"
-                    app:layout_constraintEnd_toEndOf="@id/pokemon_name_main"
-                    app:layout_constraintStart_toStartOf="@id/pokemon_name_main"
-                    app:layout_constraintTop_toBottomOf="@id/pokemon_name_main"
-                    tools:text="@string/_001" />
-
-                <com.google.android.material.tabs.TabLayout
-                    android:id="@+id/tabLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_marginHorizontal="10dp"
-                    android:layout_marginTop="15dp"
-                    android:background="@color/white"
-                    app:tabGravity="fill"
-                    app:layout_constraintTop_toBottomOf="@id/pokemon_id_main"
-                    app:tabBackground="@drawable/tab_background_selector"
-                    app:tabIndicatorHeight="0dp"
-                    app:tabSelectedTextColor="@color/white"
-                    app:tabTextAppearance="@style/TextStyleTAB"
-                    app:tabTextColor="@color/black" />
-
-                <com.goiz.pokedex.components.CustomViewPager
-                    android:id="@+id/viewPager"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    app:layout_constraintEnd_toEndOf="@id/tabLayout"
-                    app:layout_constraintStart_toStartOf="@id/tabLayout"
-                    app:layout_constraintTop_toBottomOf="@id/tabLayout" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        <com.goiz.pokedex.res.components.CustomViewPager
+            android:id="@+id/viewPager"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            app:layout_constraintEnd_toEndOf="@id/tabLayout"
+            app:layout_constraintStart_toStartOf="@id/tabLayout"
+            app:layout_constraintTop_toBottomOf="@id/tabLayout" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

@@ -2,31 +2,17 @@
     <string name="app_name">Pokédex</string>
     <string name="app_description">A Pokédex é um dispositivo eletrônico designado a catalogar e prover informações sobre as vastas espécies do Pokémon exibido no videogame Pokémon, no anime e séries manga.</string>
     <string name="qual_o_seu_nome">Qual é o seu nome?</string>
-    <string name="nome">Nome</string>
     <string name="meu_nome">Meu nome é…</string>
     <string name="pr_ximo">Próximo</string>
     <string name="toast_digite_seu_nome">Digite seu nome!</string>
-    <string name="teste">Teste</string>
-    <string name="bem_vinde">Bem-vinde,</string>
-    <string name="iniciando_sua_poked_x_em">Iniciando sua PokeDéx em</string>
-    <string name="_3">3</string>
-    <string name="username">username</string>
-    <string name="bem_vindo_a">Bem-vindo(a),</string>
     <string name="about">About</string>
-    <string name="procure">Procure…</string>
-    <string name="search">Search</string>
     <string name="pokemons">Pokémons</string>
     <string name="_001">#001</string>
     <string name="atributo">Atributo</string>
     <string name="default_icon">Default</string>
-    <string name="carregando">Carregando…</string>
     <string name="pikachu">Pikachu</string>
     <string name="pokemon_icon">Pokemon Icon</string>
-    <string name="status">Status</string>
-    <string name="evolucoes">Evoluções</string>
-    <string name="habilidades">Habilidades</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="hp">HP</string>
     <string name="atk">ATK</string>
     <string name="def">DEF</string>
@@ -40,6 +26,8 @@
     <string name="back">Back</string>
     <string name="app_version">Versão do aplicativo</string>
     <string name="app_version_value">1.0.0</string>
+    <string name="procure_um_pokemon">Procure um pokemon...</string>
+    <string name="este_pokemon_n_o_evolui">Este pokemon não evolui :(</string>
 
 
 </resources>
