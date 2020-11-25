@@ -3,17 +3,16 @@ package com.goiz.pokedex.view
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import android.view.KeyEvent
 import android.view.View
-import android.widget.EditText
 import android.widget.SearchView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.goiz.pokedex.R
 import com.goiz.pokedex.model.pokemon.Pokemon
+import com.goiz.pokedex.res.respository.ListPageRepository
 import com.goiz.pokedex.view.adapters.PokemonAdapter
 import com.goiz.pokedex.viewmodel.ListPageViewModel
 import pl.droidsonroids.gif.GifImageView
@@ -26,12 +25,19 @@ class HomePageList : AppCompatActivity(), PokemonAdapter.CellClickListener {
     private val loading by lazy { findViewById<GifImageView>(R.id.loading) }
     private val recyclerView by lazy { findViewById<RecyclerView>(R.id.recyclerView) }
 
-    private val viewModel = ListPageViewModel()
+    private val viewModel = ViewModelProvider(
+        viewModelStore,
+        ListPageViewModel.ListPageViewModelFactory(ListPageRepository())
+    ).get(ListPageViewModel::class.java)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home_page_list)
         val username = intent.getStringExtra("Username")
+
+        if(savedInstanceState == null){
+            getPokemonList()
+        }
 
         val newTitle = "Oi, $username"
         title.text = newTitle
@@ -45,8 +51,6 @@ class HomePageList : AppCompatActivity(), PokemonAdapter.CellClickListener {
                 return false
             }
         })
-
-        getPokemonList()
     }
 
     private fun getPokemonList() {

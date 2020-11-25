@@ -18,22 +18,11 @@ class Evolution : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_evolution, container, false)
 
-        val pokemonId = arguments?.getInt("PokemonId")
-        val pokemonName = arguments?.getString("PokemonName")
         val evolutionData = arguments?.getIntegerArrayList("Evolutions")
         val evolutionsNameData = arguments?.getStringArrayList("EvolutionsName")
 
-        val evolutionList = mutableListOf<Int>().apply {
-            if (pokemonId != null) {
-                add(pokemonId)
-            }
-        }
-        val evolutionListName = mutableListOf<String>().apply {
-            if (pokemonName != null) {
-                add(pokemonName)
-            }
-        }
-
+        val evolutionList = mutableListOf<Int>()
+        val evolutionListName = mutableListOf<String>()
 
         evolutionData?.forEach {
             evolutionList.add(it)

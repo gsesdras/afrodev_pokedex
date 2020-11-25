@@ -4,7 +4,7 @@ package com.goiz.pokedex
 import com.goiz.pokedex.model.evolution_chain.EvolutionChain
 import com.goiz.pokedex.view.PokemonActivity
 import com.google.gson.Gson
-import junit.framework.Assert.assertEquals
+import org.junit.Assert.assertEquals
 import org.junit.Test
 import java.io.File
 
@@ -19,8 +19,11 @@ class PokemonActivityTest {
         val evolutionChain: EvolutionChain = gson.fromJson(json, EvolutionChain::class.java)
 
         val evolutions = ArrayList<Int>()
-        mActivity.addChain(evolutionChain.chain, evolutions)
-        assertEquals(arrayListOf(2, 3), evolutions)
+        val evolutionsName = ArrayList<String>()
+
+        mActivity.addChain(evolutionChain.chain, evolutions, evolutionsName)
+        assertEquals(arrayListOf(1, 2, 3), evolutions)
+        assertEquals(arrayListOf("bulbasaur", "ivysaur", "venusaur"), evolutionsName)
 
     }
 
