@@ -10,10 +10,12 @@ import android.widget.EditText
 import android.widget.SearchView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.goiz.pokedex.R
 import com.goiz.pokedex.model.pokemon.Pokemon
+import com.goiz.pokedex.res.respository.ListPageRepository
 import com.goiz.pokedex.view.adapters.PokemonAdapter
 import com.goiz.pokedex.viewmodel.ListPageViewModel
 import pl.droidsonroids.gif.GifImageView
@@ -26,7 +28,10 @@ class HomePageList : AppCompatActivity(), PokemonAdapter.CellClickListener {
     private val loading by lazy { findViewById<GifImageView>(R.id.loading) }
     private val recyclerView by lazy { findViewById<RecyclerView>(R.id.recyclerView) }
 
-    private val viewModel = ListPageViewModel()
+    private val viewModel = ViewModelProvider(
+        viewModelStore,
+        ListPageViewModel.MainViewModelFactory(ListPageRepository())
+    ).get(ListPageViewModel::class.java)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
