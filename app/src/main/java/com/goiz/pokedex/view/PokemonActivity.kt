@@ -2,6 +2,7 @@ package com.goiz.pokedex.view
 
 import TabAdapter
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -16,6 +17,7 @@ import com.goiz.pokedex.model.ability.Ability
 import com.goiz.pokedex.model.evolution_chain.Chain
 import com.goiz.pokedex.model.evolution_chain.EvolutionChain
 import com.goiz.pokedex.model.pokemon.Pokemon
+import com.goiz.pokedex.model.species.Species
 import com.goiz.pokedex.model.type.Type
 import com.goiz.pokedex.util.PokeUtils
 import com.goiz.pokedex.viewmodel.PokemonViewModel
@@ -104,27 +106,17 @@ class PokemonActivity : AppCompatActivity() {
         })
     }
 
-    fun addChain(chain: Chain, evolutions: ArrayList<Int>, evolutionsName: ArrayList<String>) {
+    fun addChain(chain: Chain, evolutions: ArrayList<Int>) {
         if (chain.evolves_to.isNullOrEmpty())
             return
-        if(evolutions.isEmpty()){
-            evolutions.add(PokeUtils.getIdfromUrl(chain.species.url, "species/").toInt())
-        }
-        if(evolutionsName.isEmpty()){
-            evolutionsName.add(chain.species.name)
-        }
-
 
         val evolvesTo = chain.evolves_to[0]
-
-        val id = PokeUtils.getIdfromUrl(evolvesTo.species.url, "species/").toInt()
-
+        val str = evolvesTo.species.url.substringAfterLast("species/")
+        val id = str.split("/")[0].toInt()
         evolutions.add(id)
         evolutionsName.add(evolvesTo.species.name)
-
-
         if (!evolvesTo.evolves_to.isNullOrEmpty()) {
-            addChain(evolvesTo, evolutions, evolutionsName)
+            addChain(evolvesTo, evolutions)
         }
     }
 
@@ -195,7 +187,7 @@ class PokemonActivity : AppCompatActivity() {
             resistances.add(it.name)
         }
 
-        addChain(chain.chain, evolutions, evolutionsName)
+        addChain(chain.chain, evolutions)
 
         val bundle = Bundle().apply {
             putSerializable("PokemonStats", pokemonStat)

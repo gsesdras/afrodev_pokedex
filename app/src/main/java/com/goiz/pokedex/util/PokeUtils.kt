@@ -67,8 +67,4 @@ object PokeUtils {
 
         return returnId
     }
-
-    fun getIdfromUrl(str: String, delimiter1: String): String{
-        return str.substringAfterLast(delimiter1).split("/")[0]
-    }
 }
